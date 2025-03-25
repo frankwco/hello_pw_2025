@@ -5,10 +5,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <!--<link rel="stylesheet" href="css/variable.css" />-->
     <link rel="stylesheet" href="css/index.css" />
 </head>
 
-<body>
+<body data-theme="dark">
     <header>
         <h1>SETIF 2025 - Semana de Tecnologia da Informação</h1>
     </header>
@@ -21,6 +22,7 @@
         <div class="gap" >
             <button class="botao">Increva-se</button>
             <button class="botao">Saiba Mais</button>
+            <button id="btAlterarTema" onclick="alterarTema()" class="botao">Light</button>
         </div>
         <div class="cards">
             <div class="card">
@@ -39,7 +41,11 @@
                 <p>Especialistas do sertor irão discutir tendências da tecnologia</p>
             </div>
         </div>
+
+        
     </main>
+
+    <script src="js/index.js"></script>
 </body>
 
 </html>
