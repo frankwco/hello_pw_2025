@@ -6,12 +6,49 @@ document.addEventListener("DOMContentLoaded", (event) => {
     document.body.setAttribute("data-theme", temaLocal);
 });
 
+let idiomaAtual = "pt";
+
+function alterarIdioma() {
+    idiomaAtual = idiomaAtual == "pt" ? "en" : "pt";
+    carregarIdioma(idiomaAtual);
+}
+
+function carregarIdioma(idioma) {
+    fetch(`json/${idioma}.json`)
+        .then(data => data.json())
+        .then(data => {
+            traduzirPagina(data);
+        });
+}
+
+function traduzirPagina(linguagem) {
+    document.querySelectorAll("[data-i18n]").forEach(elemento => {
+        console.log(elemento);
+        const chave = elemento.getAttribute("data-i18n");
+        console.log(chave);
+        if (linguagem[chave]) {
+            elemento.textContent = linguagem[chave];
+        }
+    });
+
+    //PARA IMAGENS
+    document.querySelectorAll("[data-i18n-alt]").forEach(elemento => {
+        console.log(elemento);
+        const chave = elemento.getAttribute("data-i18n-alt");
+        console.log(chave);
+        if (linguagem[chave]) {
+            //elemento.textContent = linguagem[chave];
+            elemento.setAttribute("alt", linguagem[chave]);
+        }
+    });
+}
+
 function construirModal() {
     const botaoSaibaMais = document.getElementById("saiba-mais");
     const modal = document.getElementById("modal");
     const botaoFechar = document.getElementById("fechar-modal");
 
-    botaoFechar.addEventListener("click", ()=>{
+    botaoFechar.addEventListener("click", () => {
         modal.classList.add("hidden");
     });
 
