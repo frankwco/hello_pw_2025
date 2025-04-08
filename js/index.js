@@ -4,7 +4,19 @@ document.addEventListener("DOMContentLoaded", (event) => {
 
     const temaLocal = localStorage.getItem("tema");
     document.body.setAttribute("data-theme", temaLocal);
+
+    buscarSeguidores();
+
 });
+
+function buscarSeguidores(){
+    fetch("https://api.github.com/users/frankwco/followers")
+    .then(data=>data.json())
+    .then(data=>{
+        console.log("seguidores "+data.length);
+        console.log(data)
+    })
+}
 
 let idiomaAtual = "pt";
 
