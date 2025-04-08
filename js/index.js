@@ -10,6 +10,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
 });
 
 function buscarSeguidores(){
+    //REQUISIÇÕES NÃO AUTENTICADA POSSUI LIMITAÇÃO DE REGISTROS
     fetch("https://api.github.com/users/frankwco/followers")
     .then(data=>data.json())
     .then(data=>{
