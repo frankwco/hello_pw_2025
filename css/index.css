@@ -16,10 +16,13 @@ header {
     position: relative;
 }
 
-.botao-alterar-tema{
+.botoes-opcoes{
     position: absolute;
-    top: 15px;
-    right: 15px;
+        top: 15px;
+        right: 15px;
+}
+
+.botao-opcao{
     border-radius: 8px;
     background-color: #ee650a;
     cursor: pointer;
@@ -31,7 +34,7 @@ header {
     font-size: 0.5em;
 }
 
-.botao-alterar-tema:hover{
+.botao-opcao:hover{
     background-color: #ca5506;
 }
 
